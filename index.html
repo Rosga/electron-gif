@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <title>Hello World!</title>
+    <script src="https://cdn.webrtc-experiment.com/gif-recorder.js"></script>
   </head>
   <body>
     <h1>Hello World!</h1>
@@ -10,6 +11,13 @@
     We are using Node.js <script>document.write(process.versions.node)</script>,
     Chromium <script>document.write(process.versions.chrome)</script>,
     and Electron <script>document.write(process.versions.electron)</script>.
+
+    <br>
+    <video id="live_video" autoplay controls></video>
+
+    <div class="video-container"></div>
+
+    <button class="ss-btn-start-record">Start Record</button>
   </body>
 
   <script>
