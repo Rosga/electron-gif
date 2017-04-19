@@ -7,6 +7,9 @@ const path = require("path");
 const fs = require("fs");
 const RecordRTC = require('recordrtc');
 
+
+
+
 var startRecordButton = document.querySelector(".ss-btn-start-record");
 
 startRecordButton.addEventListener("click", function () {
@@ -27,12 +30,16 @@ function handleStream(stream) {
     globalStream = stream;
 
     var options = {
-        type: 'gif',
-        frameRate: 600,
-        quality: 8,
+        type: 'video',
+        videoBitsPerSecond: 100,
+        frameInterval: 5,
+        video: {
+            width: parseInt(1366 * 0.8),
+            height: parseInt(768 * 0.8)
+        },
         canvas: {
-            width: parseInt(1366 * 0.5),
-            height: parseInt(768 * 0.5)
+            width: parseInt(1366 * 0.8),
+            height: parseInt(768 * 0.8)
         }
     };
     var recordRTC = RecordRTC(stream, options);
@@ -47,7 +54,7 @@ function handleStream(stream) {
             blobToBuffer(blob).then(function(buf) {
                 console.log("buf => ", buf);
 
-                var filePath = path.join(__dirname, "test5.gif");
+                var filePath = path.join(__dirname, "test3.webm");
                 console.log("filePath => ", filePath);
 
                 try {
